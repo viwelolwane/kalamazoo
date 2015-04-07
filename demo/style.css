@@ -74,10 +74,8 @@ body {
   .grid .line {
     position: absolute;
     top: 40;
-    right: 0;
-    float: bottom;
-    opacity: 0.5 ;
-    -webkit-transition: opacity 0.2s;
+    right: 40;
+    opacity: 0.8;
   }
     .grid .controls .resize {
       float: left;
