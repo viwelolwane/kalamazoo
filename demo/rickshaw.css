@@ -223,7 +223,7 @@
 .rickshaw_graph .x_ticks_d3 .tick {
 	stroke: rgba(0, 0, 0, 0.16);
 	stroke-width: 2px;
-	shape-rendering: crisp-edges;
+	/* shape-rendering: crisp-edges; */
 	pointer-events: none;
 }
 .rickshaw_graph .y_grid .tick,

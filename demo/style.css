@@ -74,7 +74,7 @@ body {
   .grid .line {
     position: absolute;
     top: 40;
-    right: 40;
+    right: 45;
     opacity: 0.8;
   }
     .grid .controls .resize {
