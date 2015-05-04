@@ -1,6 +1,6 @@
 mapwidget = function(){
     var map = new ol.Map({
-    target: $('#map')[0],
+    target: $('.map')[0],
     layers: [
         new ol.layer.Tile({
             source: new ol.source.OSM()

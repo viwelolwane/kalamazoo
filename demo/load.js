@@ -1,15 +1,15 @@
-var widgets = [ 'map','bar', 'line', 'gauge' ];
+var widgets = [ 'map','bar', 'line', 'gauge', 'dline' ];
 
 var DemoGrid = {
   currentSize: 3,
   buildElements: function($gridContainer, items) {
     var item, i, temp;
-    for (i = 0; i < 7; i++) {
+    for (i = 0; i < widgets.length; i++) {
       item = items[i];
       if(widgets[i]=="bar"){
         temp =  '<div><canvas id=' + widgets[i] + ' height="250">' + '</canvas></div>';
       } if(widgets[i]=="gauge"){
-        temp = '<span id=' + widgets[i] + '></span>'
+        temp = '<div id=' + widgets[i] + '></div>'
       } else {
         temp = '<div><div class=' + widgets[i] + '/>' + '</div>';
       }
@@ -26,8 +26,8 @@ var DemoGrid = {
         '</li>'
       );
       $item.attr({
-        'data-w': 3,
-        'data-h': 2,
+        'data-w': 2,
+        'data-h': 1,
         'data-x': item.x,
         'data-y': item.y
       });
@@ -35,10 +35,12 @@ var DemoGrid = {
     }
   },
   resize: function(size) {
+    /***
     if (size) {
       this.currentSize = size;
     }
     $('#grid').gridList('resize', this.currentSize);
+    ***/
   },
   flashItems: function(items) {
     // Hack to flash changed items visually
@@ -53,10 +55,12 @@ var DemoGrid = {
   },
   renderwidgets: function(){
     $(document).ready(function(){
-      mapwidget();
+      //mapwidget();
       //histogramwidget();
-      graphwidget();
+      //timeSeries("dline");
+      //graphwidget();
       createGauge("gauge", "Flow");
+      timeSeries("dline");
       setInterval(updateGauges, 5000);
     });
   } 

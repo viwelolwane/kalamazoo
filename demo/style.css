@@ -77,6 +77,13 @@ body {
     right: 45;
     opacity: 0.8;
   }
+  .grid .gauge {
+    position: absolute;
+    top: 10;
+    right: 120;
+    opacity: 0.8;
+  }
+
     .grid .controls .resize {
       float: left;
       margin: 5px 5px 0 0;
@@ -125,3 +132,4 @@ body {
     .header a:hover {
       text-decoration: underline;
     }
+
