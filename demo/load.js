@@ -16,11 +16,11 @@ var DemoGrid = {
       $item = $(
         '<li>' +
           '<div class="inner">' +
-            '<!-- <div class="controls">' + 
+            '<div class="controls">' + 
               '<a href="#zoom1" class="resize" data-size="1">1x</a>' +
               '<a href="#zoom2" class="resize" data-size="2">2x</a>' +
               '<a href="#zoom3" class="resize" data-size="3">3x</a>' +
-            '</div> --!>' +
+            '</div>' +
             temp +
           '</div>' +
         '</li>'
@@ -60,8 +60,8 @@ var DemoGrid = {
       //timeSeries("dline");
       //graphwidget();
       createGauge("gauge", "Flow");
-      timeSeries("dline");
       setInterval(updateGauges, 5000);
+      //timeSeries("dline");
     });
   } 
 };
