@@ -81,6 +81,7 @@ function Gauge(placeholderName, configuration)
 
 	this.render = function()
 	{
+		alert(placeholderName);
 		this.body = d3.select("#" + this.placeholderName)
 							.append("svg:svg")
 							.attr("class", "gauge")
@@ -318,6 +319,7 @@ function Gauge(placeholderName, configuration)
  */
 
 function timeSeries(placeholderName) {
+	alert(placeholderName);
 	var n = 243,
 	    duration = 750,
 	    now = new Date(Date.now() - duration),
@@ -326,7 +328,7 @@ function timeSeries(placeholderName) {
 
 	var margin = {top: 6, right: 0, bottom: 20, left: 40},
 	    width = 360 - margin.right,
-	    height = 300 - margin.top - margin.bottom;
+	    height = 200 - margin.top - margin.bottom;
 
 	var x = d3.time.scale()
 	    .domain([now - (n - 2) * duration, now - duration])
@@ -340,7 +342,7 @@ function timeSeries(placeholderName) {
 	    .x(function(d, i) { return x(now - (n - 1 - i) * duration); })
 	    .y(function(d, i) { return y(d); });
 
-	var svg = d3.select(placeholderName).append("p").append("svg")
+	var svg = d3.select("#" + placeholderName).append("p").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	    .style("margin-left", -margin.left + "px")
@@ -352,6 +354,8 @@ function timeSeries(placeholderName) {
 	  .append("rect")
 	    .attr("width", width)
 	    .attr("height", height);
+
+	alert(svg);
 
 	var axis = svg.append("g")
 	    .attr("class", "x axis")

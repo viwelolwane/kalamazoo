@@ -1,20 +1,10 @@
-var widgets = [ 'map','bar', 'dline', 'gauge', 'line' ];
+var widgets = [ 'map','bar', 'line', 'gauge', 'dline' ];
 
 var DemoGrid = {
   currentSize: 3, //Used to resize or zoom
   buildElements: function($gridContainer, items) {
     var item, i, temp;
-    /*****
-    for (i = 0; i < widgets.length; i++) {
-      item = items[i];
-      if(widgets[i]=="bar"){
-        temp =  '<div><canvas id=' + widgets[i] + ' height="250">' + '</canvas></div>';
-      } if(widgets[i]=="gauge"){
-        temp = '<div id=' + widgets[i] + '></div>'
-      } else {
-        temp = '<div><div class=' + widgets[i] + '/>' + '</div>';
-      }
-      ****/
+    
     for (i = 0; i < widgets.length; i++) {
       item = items[i];
 
@@ -39,6 +29,9 @@ var DemoGrid = {
           $item.find('#'+widgets[i]).attr({
             'height': 230
           });
+          break;
+        case 'line':
+          $item.children('.inner').append('<div id="line"></div>');
           break;
         default:
           $item.children('.inner').append('<div><div class=' + widgets[i] + '/></div>');
@@ -75,12 +68,12 @@ var DemoGrid = {
   },
   renderwidgets: function(){
     $(document).ready(function(){
-      mapwidget();
-      histogramwidget();
+      //mapwidget();
+      //histogramwidget();
       //graphwidget();
-      createGauge("gauge", "Flow");
-      setInterval(updateGauges, 5000);
-      timeSeries("dline");
+      //createGauge("gauge", "Flow");
+      //setInterval(updateGauges, 5000);
+      timeSeries('line');
     });
   } 
 };

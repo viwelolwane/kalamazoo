@@ -15,6 +15,30 @@
   <script src="demo/load.js"></script>
   <script src="widgets/widgets.js"></script>
   <script src="widgets/d3charts.js"></script>
+  
+  <!--d3 graph style !-->
+  <style>
+
+  svg {
+    font: 10px sans-serif;
+    right: 50;
+    left: 30;
+  }f
+
+  .line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5px;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  </style>
 </head>
 <body>
   <div class="header">
@@ -22,7 +46,7 @@
     <a href="#remove-row" class="button remove-row">-</a>
     <a href="#add-row" class="button add-row">+</a>
     !-->
-    <p><strong>Demo</strong> (source and docs)</a></p>
+    <p><strong>Demo</strong></a></p>
   </div>
   <div class="grid-container">
     <ul id="grid" class="grid">
