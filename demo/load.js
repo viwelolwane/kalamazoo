@@ -12,7 +12,6 @@ var DemoGrid = {
         '<li>' +
           '<div class="inner">' +
             '<div class="controls">' + 
-              '<a href="#zoom1" class="resize" data-size="1">1x</a>' +
               '<a href="#zoom2" class="resize" data-size="2">2x</a>' +
               '<a href="#zoom3" class="resize" data-size="3">3x</a>' +
             '</div>' +
@@ -68,11 +67,11 @@ var DemoGrid = {
   },
   renderwidgets: function(){
     $(document).ready(function(){
-      //mapwidget();
-      //histogramwidget();
+      mapwidget();
+      histogramwidget();
       //graphwidget();
-      //createGauge("gauge", "Flow");
-      //setInterval(updateGauges, 5000);
+      createGauge("gauge", "Flow");
+      setInterval(updateGauges, 5000);
       timeSeries('line');
     });
   } 
@@ -91,7 +90,7 @@ $(function() {
   $('#grid').gridList({
     rows: DemoGrid.currentSize,
     widthHeightRatio: 264 / 294,
-    heightToFontSizeRatio: 0.25,
+    heightToFontSizeRatio: 0.1,
     onChange: function(changedItems) {
       DemoGrid.flashItems(changedItems);
     }
