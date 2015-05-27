@@ -319,7 +319,7 @@ function Gauge(placeholderName, configuration)
  */
 
 function timeSeries(placeholderName) {
-	alert(placeholderName);
+	
 	var n = 243,
 	    duration = 750,
 	    now = new Date(Date.now() - duration),
@@ -327,7 +327,7 @@ function timeSeries(placeholderName) {
 	    data = d3.range(n).map(function() { return 0; });
 
 	var margin = {top: 6, right: 0, bottom: 20, left: 40},
-	    width = 360 - margin.right,
+	    width = 300 - margin.right,
 	    height = 200 - margin.top - margin.bottom;
 
 	var x = d3.time.scale()
@@ -355,8 +355,6 @@ function timeSeries(placeholderName) {
 	    .attr("width", width)
 	    .attr("height", height);
 
-	alert(svg);
-
 	var axis = svg.append("g")
 	    .attr("class", "x axis")
 	    .attr("transform", "translate(0," + height + ")")
@@ -366,7 +364,7 @@ function timeSeries(placeholderName) {
 	var yaxis = svg.append("g")
 	    .attr("class", "y axis")
 	    //.attr("")
-	    .call(y.axis = d3.svg.axis().scale(y).orient("right"));
+	    .call(y.axis = d3.svg.axis().scale(y).orient("left"));
 
 	var path = svg.append("g")
 	    .attr("clip-path", "url(#clip)")
@@ -377,6 +375,10 @@ function timeSeries(placeholderName) {
 	var transition = d3.select({}).transition()
 	    .duration(750)
 	    .ease("linear");
+	
+	function magicNumber() {
+     return 10 * Math.random();
+	}
 
 	(function updateGraph() {
 	  transition = transition.each(function() {
@@ -387,9 +389,9 @@ function timeSeries(placeholderName) {
 	    y.domain([0, d3.max(data)]);
 
 	    // push the accumulated count onto the back, and reset the count
-	    data.push(Math.min(30, getRandomValue()));
+	    data.push(Math.min(30, magicNumber()));
 
-	    // redraw the line
+	    //redraw the line
 	    svg.select(".line")
 	        .attr("d", line)
 	        .attr("transform", null);
